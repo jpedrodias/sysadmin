@@ -1,3 +1,9 @@
+# Este script automatiza o processo de atualização e manutenção do sistema em Windows.
+# - Atualiza pacotes instalados usando winget.
+# - Aplica atualizações do Windows via PSWindowsUpdate.
+# - Pergunta ao usuário se deseja reiniciar, desligar ou fazer nada após as atualizações.
+# - (Opcional) Associa arquivos .ps1 para abrir no Notepad.
+
 # Certifique-se de executar este script com privilégios de administrador.
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 
