@@ -1,10 +1,10 @@
 # Certifique-se de executar este script com privilégios de administrador.
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 
-# Configurar para abrir arquivos .ps1 no Notepad por padrão (opcional)
-Write-Host "Alterando ação padrão para arquivos .ps1 (opcional)..."
-assoc .ps1=txtfile
-ftype txtfile="%SystemRoot%\System32\notepad.exe" "%1"
+# Alterar a associação de arquivos .ps1 para abrir no Notepad (opcional, via registro)
+Write-Host "Alterando associação de arquivos .ps1 para Notepad (opcional)..."
+New-ItemProperty -Path "HKCU:\Software\Classes\.ps1" -Name "(Default)" -Value "txtfile" -Force
+New-ItemProperty -Path "HKCU:\Software\Classes\txtfile\shell\open\command" -Name "(Default)" -Value "$($env:SystemRoot)\System32\notepad.exe `"%1`"" -Force
 
 # Instalar módulo PSWindowsUpdate
 Write-Host "Instalando PSWindowsUpdate..."
