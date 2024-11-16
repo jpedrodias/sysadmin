@@ -1,3 +1,11 @@
+# Este script realiza uma limpeza abrangente do sistema, removendo caches e arquivos temporários
+# - Limpa o cache do Windows Update.
+# - Redefine o cache do Microsoft Store.
+# - Remove arquivos temporários do sistema e do usuário.
+# - Limpa o cache DNS.
+# - Remove cache de miniaturas.
+# - Opcional: Limpa o cache do navegador Microsoft Edge.
+
 # 1. Limpar cache do Windows Update
 Write-Host "Limpando cache do Windows Update..."
 Stop-Service -Name wuauserv -Force
