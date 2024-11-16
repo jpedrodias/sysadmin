@@ -13,13 +13,3 @@ winget upgrade --all --include-unknown --accept-package-agreements --accept-sour
 # 2. Executar atualizações do Windows Update
 Write-Host "Procurando por atualizações do Windows..."
 Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
-
-# 3. Pausar atualizações automáticas do Windows por 30 dias
-Write-Host "Pausando atualizações automáticas do Windows por 30 dias..."
-Pause-WindowsUpdate -Days 30
-
-# 4. Configurar para que as atualizações sejam geridas manualmente
-Write-Host "Configurando políticas para gerenciamento manual de atualizações..."
-Set-ItemProperty "HKLM:\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU" -Name "NoAutoUpdate" -Value 1
-
-Write-Host "Script concluído. Atualizações pausadas e definidas para modo manual."
