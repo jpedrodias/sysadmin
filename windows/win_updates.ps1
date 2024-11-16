@@ -8,7 +8,7 @@ Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
 Install-Module -Name PSWindowsUpdate -Force -AllowClobber
 
 # 1. Atualizar todos os pacotes via Winget
-winget upgrade --all --include-unknown
+winget upgrade --all --include-unknown --accept-package-agreements --accept-source-agreements
 
 # 2. Executar atualizações do Windows Update
 Write-Host "Procurando por atualizações do Windows..."
