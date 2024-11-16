@@ -1,16 +1,37 @@
+# Certifique-se de executar este script com privilégios de administrador.
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine -Force
 
-# 0. Permissões: Certifique-se de executar este script com privilégios de administrador.
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope LocalMachine
-# Set default action for .ps1 file as open on notepad
+# Configurar para abrir arquivos .ps1 no Notepad por padrão (opcional)
+Write-Host "Alterando ação padrão para arquivos .ps1 (opcional)..."
+assoc .ps1=txtfile
+ftype txtfile="%SystemRoot%\System32\notepad.exe" "%1"
 
-# 0. Get-WindowsUpdate: Esse comando faz parte do módulo PowerShell PSWindowsUpdate, que pode não estar instalado por padrão. Pode ser instalado com:
+# Instalar módulo PSWindowsUpdate
 Write-Host "Instalando PSWindowsUpdate..."
 Install-Module -Name PSWindowsUpdate -Force -AllowClobber
 
-# 1. Atualizar todos os pacotes via Winget
-Write-Host "winget upgrade (all) ..."
+# Atualizar todos os pacotes via Winget
+Write-Host "Atualizando todos os pacotes via winget..."
 winget upgrade --all --include-unknown --accept-package-agreements --accept-source-agreements
 
-# 2. Executar atualizações do Windows Update
-Write-Host "Fazendo atualizações do Windows..."
+# Executar atualizações do Windows Update
+Write-Host "Executando atualizações do Windows..."
+Import-Module PSWindowsUpdate
 Get-WindowsUpdate -Install -AcceptAll -IgnoreReboot
+
+# Perguntar ao usuário se deseja reiniciar, desligar ou fazer nada (default N)
+$choice = Read-Host -Prompt "[R]eboot / [S]hutdown / [N]othing ? (default is 'N')"
+
+switch ($choice.ToUpper()) {
+    "R" {
+        Write-Host "Reiniciando o sistema..."
+        Restart-Computer -Force
+    }
+    "S" {
+        Write-Host "Desligando o sistema..."
+        Stop-Computer -Force
+    }
+    default {
+        Write-Host "Nenhuma ação será tomada."
+    }
+}
