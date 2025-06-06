@@ -13,3 +13,9 @@ irm https://raw.githubusercontent.com/jpedrodias/sysadmin/refs/heads/main/window
 ```bash
 irm https://raw.githubusercontent.com/jpedrodias/sysadmin/refs/heads/main/windows/win_clean.ps1 | iex
 ```
+
+
+# Windows fix clock on dual boot machines 
+```bash
+win_utc-clock.reg
+```
