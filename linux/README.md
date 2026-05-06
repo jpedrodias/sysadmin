@@ -3,20 +3,8 @@
 ```bash
 sudo apt update
 sudo apt install chromium -y
-```
-
-# MS Core Fonts
-```bash
-sudo apt update
-sudo apt install ttf-mscorefonts-installer -y
-```
-
-
-
-# Thonny
-```
-sudo apt update
 sudo apt install thonny -y
+sudo apt install ttf-mscorefonts-installer -y
 ```
 
 # VS Code
@@ -46,3 +34,15 @@ cd Top-5-Bootloader-Themes
 sudo ./install.sh
 ```
 
+# User aluno
+```bash
+sudo useradd -m -g users -s /bin/bash aluno
+sudo usermod -aG dialout aluno
+```
+
+***
+# Limpezas
+```
+sudo apt update
+sudo apt purge mintchat thunderbird -y
+```
