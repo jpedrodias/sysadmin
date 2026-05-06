@@ -24,16 +24,6 @@ sudo apt install code
 ```
 
 
-
-# GRUB Bootloader Themes
-```bash
-sudo apt update
-sudo apt install git -y
-git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes
-cd Top-5-Bootloader-Themes
-sudo ./install.sh
-```
-
 # User aluno
 ```bash
 sudo useradd -m -g users -s /bin/bash aluno
@@ -45,4 +35,22 @@ sudo usermod -aG dialout aluno
 ```
 sudo apt update
 sudo apt purge mintchat thunderbird -y
+```
+
+***
+# GRUB Bootloader Themes
+```bash
+sudo apt update
+sudo apt install git -y
+git clone https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes
+cd Top-5-Bootloader-Themes
+sudo ./install.sh
+```
+
+
+Editar entradas no menu
+```bash
+
+
+sudo update-grub
 ```
