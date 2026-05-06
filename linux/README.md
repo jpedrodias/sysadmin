@@ -47,6 +47,12 @@ cd Top-5-Bootloader-Themes
 sudo ./install.sh
 ```
 
+```bash
+sudo add-apt-repository ppa:danielrichter2007/grub-customizer
+sudo apt update
+sudo apt install grub-customizer
+```
+
 
 Editar entradas no menu
 ```bash
