@@ -1,5 +1,8 @@
 
 # Chromium
+```sudo apt update
+sudo apt install chromium
+```
 
 
 
