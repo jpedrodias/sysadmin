@@ -59,7 +59,6 @@ sudo apt install grub-customizer
 
 Editar entradas no menu
 ```bash
-
-
+sudo grub-install
 sudo update-grub
 ```
